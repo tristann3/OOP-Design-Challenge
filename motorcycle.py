@@ -9,3 +9,8 @@ class Motorcycle(Vehicle):
     def getMaxSpeed(self):
         '''Returns max speed of the Motorcycle'''
         print(f"my max speed is {self.maxSpeed}")
+
+    def getSpeedPerWheel(self):
+        '''Calculates and prints speed per wheel --dont ask-- '''
+        speedPerWheel = int(self.maxSpeed / self.numWheels)
+        print(f"this vehicle gets {speedPerWheel} MPH per wheel!")
