@@ -6,4 +6,5 @@ class Motorcycle(Vehicle):
         self.maxSpeed = maxSpeed
 
     def getMaxSpeed(self):
+        '''Returns max speed of the Motorcycle'''
         print(f"my max speed is {self.maxSpeed}")
