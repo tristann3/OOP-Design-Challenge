@@ -24,7 +24,11 @@ class Person():
         self.garage.remove(Vehicle)
 
 if __name__ == "__main__":
-    toyota = Car("19000", "Jeep", "Wrangler Rubicon", "2019", 120)
+    toyota = Car(19000, "Jeep", "Wrangler Rubicon", "2019", 120)
     toyota.getSpeedPerWheel()
-    kawasaki = Motorcycle("19000", "Jeep", "Wrangler Rubicon", "2019", 120)
+    kawasaki = Motorcycle(19000, "Jeep", "Wrangler Rubicon", "2019", 120)
     kawasaki.getSpeedPerWheel()
+    # kawasaki.depreciate()
+    kawasaki.getValue()
+    toyota.getValue()
+    toyota.getInfo()
