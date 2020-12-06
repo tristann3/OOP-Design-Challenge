@@ -12,10 +12,12 @@ class Person():
         '''Returns all vehicles in Person's garage'''
         for car in self.garage:
             print(f"{car.make} {car.model} {car.year} is worth ${car.value}")
+    def getMoney(self):
+        return self.money
 
-    def buyVehicle(self, money, Vehicle):
+    def buyVehicle(self, Vehicle):
         '''Adds a vehicle to the garage'''
-        self.money -= money
+        self.money -= float(Vehicle.getValue())
         self.garage.append(Vehicle)
 
     def sellVehicle(self, money, Vehicle):
@@ -28,7 +30,12 @@ if __name__ == "__main__":
     toyota.getSpeedPerWheel()
     kawasaki = Motorcycle(19000, "Jeep", "Wrangler Rubicon", "2019", 120)
     kawasaki.getSpeedPerWheel()
-    # kawasaki.depreciate()
     kawasaki.getValue()
-    toyota.getValue()
-    toyota.getInfo()
+    kawasaki.depreciate()
+    kawasaki.getValue()
+    kawasaki.getInfo()
+
+    Tristan = Person("Tristan", 100000)
+    Tristan.buyVehicle(kawasaki)
+    print(Tristan.getMoney())
+

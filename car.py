@@ -7,7 +7,8 @@ class Car(Vehicle):
         self.numWheels = 4
 
     def getValue(self):
-        print(f"This Vehicle is worth ${self.value}")
+        '''Returns the current value of the Car'''
+        return self.value
 
     def getMaxSpeed(self):
         '''Returns max speed of the Car'''
