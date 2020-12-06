@@ -1,4 +1,7 @@
 from vehicle import Vehicle
+from car import Car
+from motorcycle import Motorcycle
+
 class Person():
     def __init__(self, name, money):
         self.name = name
@@ -21,4 +24,7 @@ class Person():
         self.garage.remove(Vehicle)
 
 if __name__ == "__main__":
-    pass
+    toyota = Car("19000", "Jeep", "Wrangler Rubicon", "2019", 120)
+    toyota.getSpeedPerWheel()
+    kawasaki = Motorcycle("19000", "Jeep", "Wrangler Rubicon", "2019", 120)
+    kawasaki.getSpeedPerWheel()

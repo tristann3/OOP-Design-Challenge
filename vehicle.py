@@ -14,3 +14,4 @@ class Vehicle():
     def depreciate(self):
         '''Sets the value of a vehicle to a depreciated value'''
         self.value -= self.value * .15
+
