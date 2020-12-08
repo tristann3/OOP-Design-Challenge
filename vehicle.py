@@ -18,22 +18,22 @@ class Vehicle():
 
     def depreciate(self):
         '''Sets the value of a vehicle to a depreciated value'''
-        self.value -= self.value * .15 # linear depreciation, could use real data but....effort
+        self.value -= int(self.value * .15) # linear depreciation, could use real data but....effort
 
     def getMaxSpeed(self):
         '''Returns max speed of the Car'''
         my_str = f"my max speed is {self.maxSpeed}"
-        print(my_str.ljust(42) + "|")
+        print(my_str.ljust(45) + "|")
+    
     def getSpeedPerWheel(self):
-
         '''Calculates and prints speed per wheel --dont ask-- '''
         speedPerWheel = int(self.maxSpeed / self.numWheels)
         my_str = f"this vehicle gets {speedPerWheel} MPH per wheel!"
-        print(my_str.ljust(42) + "|")
+        print(my_str.ljust(45) + "|")
 
     def __str__ (self):
         my_str = f"{self.make} {self.model} {self.year} worth ${self.value}"
-        return my_str.ljust(42) + "|"
+        return my_str.ljust(45) + "|"
 
     
 

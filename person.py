@@ -15,11 +15,16 @@ class Person():
             print("Tristan's garage is empty!")
         else:
             print(f"{self.__name}'s Garage: \n------------------------------------------")
-            for car in self.garage:
+            for vehicle in self.garage:
                 print("")
-                print(car)
-                car.getMaxSpeed()
-                car.getSpeedPerWheel()
+                print(vehicle)
+                if isinstance(vehicle, Car):
+                    vehicle.zoom()
+                    vehicle.canSelfDrive()
+                elif isinstance(vehicle, Motorcycle):
+                    vehicle.hasWheelieBar()
+                vehicle.getMaxSpeed()
+                vehicle.getSpeedPerWheel()
                 print("")
 
             print("------------------------------------------")
@@ -27,6 +32,12 @@ class Person():
     def getMoney(self):
         '''Returns the current amount of money the person object has'''
         return f"${self.__money}"
+    
+    def getAssets(self):
+        assets = self.__money
+        for vehicle in self.garage:
+            assets += vehicle.getValue()
+        return str(assets)
 
     def buyVehicle(self, Vehicle):
         '''Adds a vehicle to the garage'''
@@ -35,37 +46,48 @@ class Person():
 
     def sellVehicle(self, Vehicle):
         '''Removes a vehicle from the garage'''
+        Vehicle.getInfo()
         self.__money += float(Vehicle.getValue())
         self.garage.remove(Vehicle)
 
 if __name__ == "__main__":
     os.system("clear")
-    toyota = Car(38045, "Jeep", "Wrangler Rubicon", "2019", 112, 4)
-    kawasaki = Motorcycle(4999, "Kawasaki", "Ninja 400", "2020", 105, 2)
+
+    tesla = Car(38045, "Telsa", "Tesla Series X", "2020", 130, 4, False, True)
+    honda = Car(38045, "Honda", "WRX", "2020", 174, 4, True, False)
+    kawasaki = Motorcycle(4999, "Kawasaki", "Ninja 400", "2020", 105, 2, True)
+    harley = Motorcycle(11499, "Harley Davidson", "Roadster", "2020", 110, 2, False)
+
     Tristan = Person("Tristan", 100000)
 
-    toyota.getInfo()
+    tesla.getInfo()
     kawasaki.getInfo()
+    honda.getInfo()
+    harley.getInfo()
 
-    print("\nStarting money: $" + Tristan.getMoney())
+    print("\nCurrent money: " + Tristan.getMoney())
 
-    print("Tristan has " + Tristan.getMoney())
+    print("\nTristan buys all the cars\n")
     Tristan.buyVehicle(kawasaki)
-    Tristan.buyVehicle(toyota)
-    print("Tristan has " + Tristan.getMoney() + "\n")
+    Tristan.buyVehicle(harley)
+    Tristan.buyVehicle(tesla)
+    Tristan.buyVehicle(honda)
+    print("Current money " + Tristan.getMoney() + "\n")
     Tristan.getVehicles()
 
-    print("\n\n1 year has passed and you decide to sell your cars\n\n")
-    toyota.depreciate()
+    print("\n\n1 year has passed and you decide to sell some cars\n\n")
+    tesla.depreciate()
     kawasaki.depreciate()
 
     Tristan.sellVehicle(kawasaki)
-    Tristan.sellVehicle(toyota)
+    Tristan.sellVehicle(tesla)
+    print("\n")
 
     
     Tristan.getVehicles()
 
 
     print("\nEnding money " + Tristan.getMoney())
+    print("Assets " + Tristan.getAssets())
 
     
